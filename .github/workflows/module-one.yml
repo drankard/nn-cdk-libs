@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - "module-one/**"
-      - ".github/workflows/module-one.yaml"
+      - ".github/workflows/module-one.yml"
 
 jobs:
   build:
