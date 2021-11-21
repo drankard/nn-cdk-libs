@@ -11,8 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
+      - name: Build
+        run: |-
+          cd module-one
+          yarn install
+          yarn build
+          yarn cdk synth
       - name: Run tests
         run: |-
           cd module-one
-          echo "Building module-one"
+          echo "Testing module-one"
