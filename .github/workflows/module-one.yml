@@ -7,8 +7,11 @@ on:
       - ".github/workflows/module-one.yml"
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./module-one
     steps:
       - uses: actions/checkout@v1
       - name: Cache node modules
@@ -19,8 +22,8 @@ jobs:
       
       - name: Install dependencies
         if: steps.yarn-cache.outputs.cache-hit != 'true'
-        workung-directory: module-one
         run: yarn install
+        workung-directory: ${{env.working-directory}}
 
       - name: Build
         run: |-
