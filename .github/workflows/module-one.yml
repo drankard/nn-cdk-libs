@@ -7,7 +7,7 @@ on:
       - ".github/workflows/module-one.yaml"
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -20,4 +20,13 @@ jobs:
       - name: Run tests
         run: |-
           cd module-one
-          echo "Testing module-one"
+          echo "Running unit tests"
+          yarn test
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Integration tests
+        run: |-
+          cd module-one
+          echo "Running integration tests"
+          yarn test
