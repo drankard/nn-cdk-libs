@@ -1,5 +1,6 @@
 {
   "name": "module-one",
+  "license": "UNLICENSED",
   "version": "0.1.0",
   "bin": {
     "module-one": "bin/module-one.js"
