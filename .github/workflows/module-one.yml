@@ -27,6 +27,7 @@ jobs:
     steps:
       - name: Integration tests
         run: |-
+          pwd
           cd module-one
           echo "Running integration tests"
           yarn test

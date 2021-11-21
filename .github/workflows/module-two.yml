@@ -7,7 +7,7 @@ on:
       - ".github/workflows/module-two.yml"
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
