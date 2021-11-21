@@ -19,5 +19,6 @@ jobs:
           yarn cdk synth
       - name: Run tests
         run: |-
+          pwd
           cd module-two
           echo "Building module-two"
