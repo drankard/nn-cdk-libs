@@ -24,7 +24,7 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
       - name: Build
-        needs: job1
+        needs: Cache node modules
         run: |-
           cd module-one
           yarn install
