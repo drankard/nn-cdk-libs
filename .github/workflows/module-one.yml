@@ -41,7 +41,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Integration tests
         run: |-
-          pwd
           cd module-one
+          ls -la
           echo "Running integration tests"
           yarn test
