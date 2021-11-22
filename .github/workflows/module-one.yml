@@ -26,12 +26,15 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-  
-            
+      - name: Install NPM dependencies
+        run: yarn install            
+      
       - name: Build
         run: |-
           cd module-one
           yarn build
           yarn cdk synth
+      
       - name: Run tests
         run: |-
           cd module-one
