@@ -30,8 +30,8 @@ jobs:
       
       - name: Install NPM dependencies
         working-directory: ${{env.working-directory}}
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |-
-          ls -la
           yarn install            
       
       - name: Build
@@ -52,6 +52,20 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v1
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          working-directory: ${{env.working-directory}}
+          restore-keys: |
+            ${{ runner.os }}-yarn-  
+      
+      - name: Install NPM dependencies
+        working-directory: ${{env.working-directory}}
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |-
+          yarn install            
       
       - name: Integration tests
         working-directory: ${{env.working-directory}}
