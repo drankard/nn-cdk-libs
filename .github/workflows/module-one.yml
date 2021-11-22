@@ -26,7 +26,12 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-  
-      
+ 
+      - name: list files
+        working-directory: ${{env.working-directory}}
+        run: |-
+          ls -ltra  
+
       - name: Install NPM dependencies
         working-directory: ${{env.working-directory}}
         if: steps.yarn-cache.outputs.cache-hit != 'true'
