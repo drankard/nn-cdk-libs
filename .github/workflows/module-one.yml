@@ -7,10 +7,11 @@ on:
       - ".github/workflows/module-one.yml"
 
 jobs:
-  env:
-    working-directory: ./module-one
+
   build:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./module-one
     steps:
       - uses: actions/checkout@v1
 
@@ -46,6 +47,8 @@ jobs:
           yarn test
   test:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./module-one
     needs: build
     steps:
       - uses: actions/checkout@v1
