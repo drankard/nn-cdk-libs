@@ -7,11 +7,10 @@ on:
       - ".github/workflows/module-one.yml"
 
 jobs:
-
+  env:
+    working-directory: ./module-one
   build:
     runs-on: ubuntu-latest
-    env:
-      working-directory: ./module-one
     steps:
       - uses: actions/checkout@v1
 
@@ -50,6 +49,7 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v1
+      
       - name: Integration tests
         working-directory: ${{env.working-directory}}
         run: |-
