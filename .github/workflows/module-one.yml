@@ -42,8 +42,8 @@ jobs:
           yarn cdk synth
       
       - name: Run tests
+        working-directory: ${{env.working-directory}}
         run: |-
-          cd module-one
           echo "Running unit tests"
           yarn test
   test:
@@ -52,8 +52,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Integration tests
+        working-directory: ${{env.working-directory}}
         run: |-
-          cd module-one
           ls -la
           echo "Running integration tests"
           yarn test
