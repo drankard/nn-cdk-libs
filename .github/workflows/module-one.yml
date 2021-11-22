@@ -34,7 +34,6 @@ jobs:
 
       - name: Install NPM dependencies
         working-directory: ${{env.working-directory}}
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |-
           yarn install            
       
@@ -73,7 +72,6 @@ jobs:
       
       - name: Install NPM dependencies
         working-directory: ${{env.working-directory}}
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: |-
           yarn install            
       
