@@ -50,7 +50,7 @@ jobs:
           yarn test
 
 
-  test:
+  integration-test:
     runs-on: ubuntu-latest
     env:
       working-directory: ./module-one
