@@ -1,11 +1,11 @@
-FROM node:lts-buster
+FROM node:lts-bullseye
 
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
     curl \
     build-essential \
-    apt-utils make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev python-openssl vim jq
+    apt-utils make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev vim jq
 
 
 # cdk and deps
